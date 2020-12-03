@@ -1,0 +1,11 @@
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: var(--color-white);
+  vertical-align: center;
+  margin-top: 20%;
+}

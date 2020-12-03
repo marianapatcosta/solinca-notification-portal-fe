@@ -1,0 +1,36 @@
+.button {
+  padding: 10px;
+  border: 1px solid var(--color-pink);
+  border-radius: 3px;
+  background-color: var(--color-transparent);
+  color: var(--color-pink);
+  font-size: 95%;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  min-width: 75px;
+}
+
+.button:hover,
+.button:active {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.button:disabled,
+.button:hover:disabled,
+.button:active:disabled {
+  background: var(--color-disabled);
+  color: #ccc;
+  border-color: #ccc;
+  pointer-events: none;
+}
+
+.button--small {
+  font-size: 0.8rem;
+}
+
+.button--large {
+  width: 100%;
+}

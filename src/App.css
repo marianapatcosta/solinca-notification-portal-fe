@@ -1,0 +1,34 @@
+.app {
+  width: 100vw;
+  max-height: 100%;
+  margin: 0 auto -50px;
+}
+
+.app__spacer {
+  left: 0;
+  top: 0;
+  height: 80px;
+  width: 100vw;
+}
+
+.app__page-content {
+  height: 100%;
+  margin: 30px auto 10px;
+  min-height: calc(100vh - 140px);
+}
+
+.app__footer {
+  width: 100%;
+  color: var(--color-white);
+  height: 30px;
+  font-size: 65%;
+  padding: 30px 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 480px) {
+  .app__page-content {
+    min-height: calc(100vh - 130px);
+  }
+}
