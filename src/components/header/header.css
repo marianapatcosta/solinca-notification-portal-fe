@@ -1,0 +1,239 @@
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 50px;
+  width: 100vw;
+  padding: 0 10px;
+  display: flex;
+  text-align: left;
+  background-color: var(--color-primary);
+  box-shadow: 0 2px 2px var(--color-shadow);
+  z-index: 50;
+}
+
+.header__flags-container {
+  display: flex;
+  margin-top: 20px;
+}
+
+.header__flag {
+  width: 25px;
+  height: 19px;
+}
+
+.header__flag:first-child {
+  margin-right: 5px;
+}
+
+.header__flag:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+.header__title {
+  color: var(--color-pink);
+  align-items: center;
+  display: flex;
+  font-size: 150%;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header__title--link {
+  font-style: italic;
+  text-decoration: none;
+  color: inherit;
+}
+
+.header__user--mobile {
+  font-size: 65%;
+  font-weight: 700;
+  color: var(--color-pink);
+  margin-right: 50px;
+}
+
+.header__content {
+  display: none;
+}
+
+.header__links {
+  display: flex;
+  flex-direction: column;
+  margin: 30px auto;
+}
+
+.header__link {
+  color: var(--color-pink);
+  text-decoration: none;
+  margin-bottom: 10px;
+  width: fit-content;
+}
+
+.header__link--icon {
+  width: 15px;
+  height: 15px;
+  filter: invert(28%) sepia(81%) saturate(4183%) hue-rotate(303deg)
+    brightness(84%) contrast(85%);
+  transition: transform 0.5s linear;
+}
+
+.header__link:hover {
+  opacity: 0.7;
+}
+
+.header__link--active {
+  font-weight: 700;
+}
+
+.header__right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header__right-side-top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.header__preferences {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.header__logout {
+  margin-top: 50%;
+  color: var(--color-pink);
+}
+
+.header__logout:hover {
+  cursor: pointer;
+  color: var(--color-font);
+}
+
+.header__hamburger-menu {
+  width: 18px;
+  height: 15px;
+  margin-right: 10px;
+  padding: 5px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-self: center;
+}
+
+.header__hamburger-menu:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.header__hamburger-menu span {
+  width: 100%;
+  height: 2.5px;
+  background: var(--color-font);
+}
+
+.header__side-menu {
+  background-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(var(--color-shadow), 0.2);
+  box-sizing: border-box;
+  width: 200px;
+  height: 100vh;
+  z-index: 10;
+  margin: 0 auto;
+  margin-top: 50px;
+  position: absolute;
+  left: -200px;
+  padding: 0 20px;
+  transition: left 0.2s linear 0s;
+}
+
+.header__side-menu--opened {
+  left: 0;
+}
+
+@media only screen and (min-width: 480px) {
+  .header {
+    padding: 0 30px;
+    height: 80px;
+  }
+
+  .header__side-menu {
+    margin-top: 80px;
+  }
+
+  .header__link--icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .header__link--icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media only screen and (min-width: 1023px) {
+  .header__hamburger-menu,
+  .header__side-menu,
+  .header__user--mobile {
+    display: none;
+  }
+
+  .header__links {
+    flex-direction: row;
+    align-self: flex-end;
+    margin: 0 auto;
+  }
+
+  .header__link {
+    margin-right: 10px;
+    border-bottom: 1px solid var(--color-pink);
+    margin-bottom: 0;
+  }
+
+  .header__link--active {
+    border-bottom: 2px solid var(--color-pink);
+    font-weight: 700;
+  }
+
+  .header__title {
+    width: auto;
+  }
+
+  .header__content {
+    margin: 0 5% 0 auto;
+    display: flex;
+  }
+
+  .header__preferences {
+    flex-direction: row;
+    margin: 15px 0;
+    align-items: center;
+  }
+
+  .header__flags-container {
+    margin-top: 0;
+  }
+
+  .header__logout {
+    align-self: flex-end;
+    margin-top: 0%;
+    margin-bottom: 2%;
+  }
+
+  .header__user {
+    font-weight: 700;
+    color: var(--color-pink);
+    margin-right: 10px;
+  }
+}
