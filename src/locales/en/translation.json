@@ -1,0 +1,118 @@
+{
+  "about": {
+    "title": "About",
+    "description": "Considering that there are only a few spots available, it is rare to be able to book online group classes at Solinca’s clubs using the mobile app or at marqueoseutreino.solinca.pt. This portal was developed to allow the user to configure his/her favorite classes for today and tomorrow and to be notified by e-mail or WhatsApp when a spot is available for these classes. This way, there is no need to frequently access Solinca’s app/site to check if some spots emerged for the classes that the user intends to book."
+  },
+  "availableClasses": {
+    "classesError": "Available classes can not be displayed.",
+    "favoriteClasses": "Available favorite classes",
+    "noFavoriteClasses": "No favorite classes {{day}}.",
+    "noFavoriteClassesAvailable": "No favorite classes available.",
+    "otherClasses": "Other classes available in your favorite clubs",
+    "today": "Today",
+    "tomorrow": "Tomorrow"
+  },
+  "authentication": {
+    "alreadyHaveAccount": "Already have an account? Click to Login.",
+    "authentication": "Authentication",
+    "createAccount": "New user? Create an account.",
+    "credentialsError": "Your username/password are incorrect. Please try again.",
+    "email": "E-mail",
+    "emailError": "Please insert a valid e-mail.",
+    "existingUserError": "Username/e-mail provided already exists.",
+    "forgotPassword": "Forgot Password?",
+    "howToGet": "how to get?",
+    "invalidData": "Please properly fill all the required form fields.",
+    "login": "Login",
+    "loginError": "It was not possible to log you in. Please try again.",
+    "noEmailError": "There is no account associated with this email. Please check the email or create an account.",
+    "password": "Password",
+    "passwordError": "Please insert a valid password (min. {{characters}} characters).",
+    "phoneNumber": "Mobile phone",
+    "phoneNumberError": "Please insert a valid portuguese phone number.",
+    "resetPassword": "Reset password",
+    "resetPasswordSuccess": "A link to reset your password was sent. Please check your email.",
+    "resetPasswordError": "It was not possible to reset your password. Please try again.",
+    "signUp": "Create account",
+    "signUpError": "It was not possible to create your account. Please try again.",
+    "solincaAuth": "Solinca authentication code",
+    "solincaAuthError": "Please insert a valid Solinca authentication code.",
+    "username": "Username",
+    "usernameError": "Please insert a valid username."
+  },
+  "footer": {
+    "main": "This portal was developed for nonprofit purposes and for self use. It uses data from marqueoseutreino.solinca.pt and icons from flaticon.com.",
+    "secondary": "Copyright ©2020 by Mariana Costa. All rights reserved." 
+  },
+  "header": {
+    "about": "about",
+    "availableClasses": "available classes",
+    "authentication": "authentication",
+    "classesError": "Favorite classes can not be displayed.",
+    "configurations": "configurations",
+    "help": "help",
+    "logout": "Logout",
+    "title": "Solinca Notification Portal"
+  }, 
+  "help": {
+    "getSolincaAuth": {
+      "step1": "Go to https://marqueoseutreino.solinca.pt, right-click on the mouse and select “Inspect”.",
+      "step2": "Select the tab “Network” and login.",
+      "step3": "Select “authenticate” and the tab “Headers”. Scroll down to “Request headers”. Solinca authentication code is in “authorization” (hidden in black). Note that the code does not include “Basic”.",
+      "title": "How do I get solinca authentication code?"
+    },
+    "title": "Help"
+  },
+  "home": {
+    "seeYou": "See you soon!",
+    "welcome": "Welcome!"
+  },
+  "modal": {
+    "header": "An error occurred",
+    "ok": "OK"
+  },
+  "resetPassword": {
+    "confirmationPassword": "Confirm new password", 
+    "confirmationPasswordError": "The provided passwords do not match.",
+    "invalidData": "Please properly fill all the required form fields.",
+    "invalidLink": "Password reset link is invalid or has expired. Please ask for a new link",
+    "newPassword": "New password",
+    "newPasswordError": "Please insert a valid password (min. {{characters}} characters).",
+    "resetPassword": "Reset password",
+    "success": "Your password was updated.",
+    "submissionError": "Password reset failed. Please try again."
+  },
+  "userData": {
+    "changePassword": "Change password",
+    "choosePreferences": "Choose your preferences",
+    "clubsError": "Clubs can not be displayed. Please verify your Solinca authentication code.",
+    "confirmationPassword": "Confirm new password", 
+    "confirmationPasswordError": "The provided passwords do not match.",
+    "editPersonalInfo": "Do you want to change your personal data?",
+    "editUserPreferences": "Do you want to edit the preferences of your notifications?",
+    "editYourPersonalInfo": "Edit your personal data",
+    "email": "E-mail",
+    "emailError": "Please insert a valid e-mail.",
+    "howToGet": "how to get?",
+    "invalidData": "Please properly fill all the required form fields.",
+    "notifiedBy": "Notified by",
+    "oldPassword": "Old password",
+    "oldPasswordError": "Please insert the old password",
+    "newPassword": "New password",
+    "newPasswordError": "Please insert a valid password (min. {{characters}} characters).",
+    "phoneNumber": "Mobile phone",
+    "phoneNumberError": "Please insert a valid portuguese phone number.",
+    "selectClubs": "Select clubs",
+    "selectClasses": "Select classes",
+    "solincaAuth": "Solinca authentication code",
+    "solincaAuthError": "Please insert a valid Solinca authentication code.",
+    "success": "Your configurations were updated.",
+    "submissionError": "Your preferences were not submitted.",
+    "submitPreferences": "Submit preferences",
+    "submitUserData": "Submit personal data",
+    "userDataError": "User data can not be displayed.",
+    "watchClasses": "Watch classes",
+    "whatsAppNotificationError": "To select WhatApp notification, please provide a mobile phone first.",
+    "wrongOldPassword": "The old password does not match. Please provide your current password."
+  }
+}
