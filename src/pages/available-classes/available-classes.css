@@ -1,0 +1,47 @@
+.available-classes__per-club {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.available-classes__per-club:first-child {
+  margin-bottom: 15px;
+}
+
+.available-classes__club {
+  display: flex;
+  flex-direction: column;
+}
+
+.available-classes__club-title {
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.available-classes__club-detail {
+  width: 100%;
+}
+
+.available-classes__club-detail:first-child {
+  margin-bottom: 15px;
+}
+
+.available-classes__club-detail-item {
+  font-style: italic;
+  padding-top: 5px;
+}
+
+@media only screen and (min-width: 480px) {
+  .available-classes__club-detail-item {
+    font-size: 90%;
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  .available-classes__club {
+    flex-direction: row;
+  }
+
+  .available-classes__club-detail:first-child {
+    margin-bottom: 0;
+  }
+}

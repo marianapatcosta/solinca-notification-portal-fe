@@ -1,0 +1,64 @@
+.input__wrapper {
+  margin: 15px 0;
+  position: relative;
+  width: 100%;
+}
+
+.input__wrapper label,
+.input__wrapper input {
+  display: block;
+}
+
+.input__label-mandatory {
+  color: var(--color-pink);
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.input__wrapper label {
+  color: var(--color-pink);
+  margin-bottom: 5px;
+  font-size: 95%;
+}
+
+.input__wrapper input {
+  color: var(--color-font);
+  width: 100%;
+  border: 2px solid var(--color-secondary);
+  background-color: var(--color-primary);
+  box-sizing: border-box;
+  padding: 5px 10px;
+  position: relative;
+  height: 30px;
+}
+
+.input__wrapper--invalid p {
+  color: var(--color-pink);
+  font-weight: bold;
+  font-size: 90%;
+}
+
+.input__wrapper--invalid input {
+  border-color: var(--color-pink);
+}
+
+.input__icon {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 33px;
+  right: 5%;
+  filter: invert(28%) sepia(81%) saturate(4183%) hue-rotate(303deg) brightness(84%) contrast(85%);
+}
+
+.input__icon:hover {
+  cursor: pointer;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--color-font);
+  -webkit-box-shadow: 0 0 0 30px var(--color-primary) inset !important;
+}

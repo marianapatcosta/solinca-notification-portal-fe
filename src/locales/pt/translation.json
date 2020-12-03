@@ -1,0 +1,118 @@
+{
+  "about": {
+    "title": "Sobre",
+    "description": "Dado o número reduzido de vagas, é raro conseguir fazer marcação online de aulas de grupo dos clubes Solinca através da aplicação para telemóvel ou em marqueoseutreino.solinca.pt. Este portal foi desenvolvido para permitir ao utilizador configurar as suas aulas favoritas para o próprio dia ou para o dia seguinte e receber uma notificação por e-mail ou WhatsApp quando surgirem vagas nestas aulas. Desta forma, o utilizador não necessita de aceder frequentemente à aplicação/site do Solinca para ver se surgiram vagas nas aulas que pretende marcar."
+  },
+  "availableClasses": {
+    "classesError": "As aulas disponíveis não podem ser mostradas.",
+    "favoriteClasses": "Aulas favoritas disponíveis",
+    "noFavoriteClasses": "Não há aulas favoritas {{day}}.",
+    "noFavoriteClassesAvailable": "Não há aulas favoritas disponíveis.",
+    "otherClasses": "Outras aulas disponíveis nos seus clubes favoritos",
+    "today": "Hoje",
+    "tomorrow": "Amanhã"
+  },
+  "authentication": {
+    "alreadyHaveAccount": "Já tem conta? Clique para fazer login.",
+    "authentication": "Autenticação",
+    "createAccount": "Novo utilizador? Crie uma conta!",
+    "credentialsError": "O seu nome de utilizador/palavra-passe estão incorrectos. Por favor tente novamente.",
+    "email": "E-mail",
+    "emailError": "Por favor insira um e-mail válido.",
+    "existingUserError": "O nome de utilizador/e-mail inserido já existe.",
+    "forgotPassword": "Esqueceu-se da palavra-passe?",
+    "howToGet": "como obter?",
+    "invalidData": "Por favor preencha corretamente todos os campos obrigatórios do formulário.",
+    "login": "Login",
+    "loginError": "Não foi possível fazer login. Por favor tente novamente.",
+    "noEmailError": "Não existe nenhuma conta associada a este email. Por favor verifique o e-mail ou crie uma conta.",
+    "password": "Palavra-passe",
+    "passwordError": "Por favor insira uma palavra-passe válida (min. 8 carateres).",
+    "phoneNumber": "Telemóvel",
+    "phoneNumberError": "Por favor insira um número de telemóvel nacional válido.",
+    "resetPassword": "Recuperar palavra-passe",    
+    "resetPasswordSuccess": "Foi enviado um link para recuperação da palavra-passe. Por favor verifique o seu email.",
+    "resetPasswordError": "Não foi possível recuperar a sua palavra-passe. Por favor tente novamente.",
+    "signUp": "Criar conta",
+    "signUpError": "Não foi possível criar a sua conta. Por favor tente novamente.",
+    "solincaAuth": "Código de autenticação Solinca",
+    "solincaAuthError": "Por favor insira o código de autenticação do Solinca",
+    "username": "Nome de utilizador",
+    "usernameError": "Por favor insira um nome de utilizador."
+  },
+  "footer": {
+    "main": "Este portal foi desenvolvido sem fins lucrativos e para usufruto próprio. Este portal utiliza dados de marqueoseutreino.solinca.pt e icones de flaticon.com.",
+    "secondary": "Copyright ©2020 por Mariana Costa. Todos os direitos reservados." 
+  },
+  "header": {
+    "about": "sobre",
+    "availableClasses": "aulas disponíveis",
+    "authentication": "autenticação",
+    "classesError": "As aulas preferidas não podem ser mostradas",
+    "configurations": "configurações",
+    "help": "ajuda",
+    "logout": "Logout",
+    "title": "Solinca Notification Portal"
+  },
+  "help": {
+    "getSolincaAuth": {
+      "step1": "Vá a https://marqueoseutreino.solinca.pt, clique com o botão direito do rato e selecione “Inspecionar”.",
+      "step2": "Selecione a tab “Network” e faça login.",
+      "step3": "Selecione “authenticate” e a tab “Headers”. Faça scroll para “Request headers”. O código de autenticação Solinca está em “authorization” (oculto a preto). Note que o código não inclui a palavra “Basic”.",
+      "title": "Como posso obter o código de autenticação Solinca?"
+    },
+    "title": "Ajuda"
+  },
+  "home": {
+    "seeYou": "Até breve!",
+    "welcome": "Bem-vinda/o!"
+  },
+  "modal": {
+    "header": "Ocorreu um erro",
+    "ok": "OK"
+  },
+  "resetPassword": {
+    "confirmationPassword": "Confirme a nova palavra-passe", 
+    "confirmationPasswordError": "As palavras-passe não coincidem.",
+    "invalidData": "Por favor preencha corretamente todos os campos obrigatórios do formulário.",
+    "invalidLink": "O link de recuperação da palavra-passe  é inválido ou expirou. Por favor solicite um novo link.",
+    "newPassword": "Nova palavra-passe",
+    "newPasswordError": "Por favor insira uma palavra-passe válida (min. 8 carateres).",
+    "resetPassword": "Recuperar palavra-passe",
+    "success": "A sua palavra-passe foi atualizada.",
+    "submissionError": "A recoperação da palavra-passe falhou. Por favor tente novamente."
+  },
+  "userData": {
+    "changePassword": "Alterar a palavra-passe",
+    "choosePreferences": "Escolha as suas preferências",
+    "clubsError": "Os clubes não podem ser mostrados. Por favor verifique o seu código de autenticação do Solinca.",
+    "confirmationPassword": "Confirme a nova palavra-passe", 
+    "confirmationPasswordError": "As palavras-passe não coincidem.",
+    "editPersonalInfo": "Pretende alterar os seus dados pessoais?",
+    "editUserPreferences": "Pretende editar as preferências das suas notificações?",
+    "editYourPersonalInfo": "Edite os seus dados pessoais",
+    "email": "E-mail",
+    "emailError": "Por favor insira um e-mail válido.",
+    "howToGet": "como obter?",
+    "invalidData": "Por favor preencha corretamente todos os campos obrigatórios do formulário.",
+    "notifiedBy": "Notificar por",
+    "oldPassword": "Palavra-passe actual",
+    "oldPasswordError": "Por favor insira a palavra-passe actual",
+    "newPassword": "Nova palavra-passe",
+    "newPasswordError": "Por favor insira uma palavra-passe válida (min. 8 carateres).",
+    "phoneNumber": "Número de telemóvel",
+    "phoneNumberError": "Por favor insira um número de telemóvel nacional válido.",
+    "selectClubs": "Selecione clubes",
+    "selectClasses": "Selecione aulas",
+    "solincaAuth": "Código de autenticação Solinca",
+    "solincaAuthError": "Por favor insira o código de autenticação do Solinca",
+    "success": "As suas configurações foram atualizadas.",
+    "submissionError": "As suas preferências não foram submetidas.",
+    "submitPreferences": "Submeter preferencias",
+    "submitUserData": "Submeter dados pessoais",
+    "userDataError": "As preferências do utilizador não podem ser mostradas.",
+    "watchClasses": "Vigiar aulas",
+    "whatsAppNotificationError": "Para selecionar a notificação por WhatApp, por favor insira primeiro um número de telemóvel.",
+    "wrongOldPassword": "A palavra-passe atual não coincide. Por favor insira a palavra-passe atual correcta."
+  }
+}

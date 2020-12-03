@@ -1,0 +1,50 @@
+.help__steps {
+  text-align: left;
+  line-height: 1rem;
+}
+
+.help__steps-title {
+  color: var(--color-pink);
+  font-weight: 400;
+  margin-bottom: 25px;
+  font-style: italic;
+  font-size: 100%;
+}
+
+.help__step {
+  margin: 0 10px 20px;
+  font-size: 85%;
+}
+
+.help__step:last-child {
+  margin-bottom: 0;
+}
+
+.help__image {
+  margin: 5px auto 0;
+}
+
+.help__image--placeholder {
+  margin: 5px auto 0;
+  height: 130px;
+  width: 95%;
+}
+
+@media only screen and (min-width: 480px) {
+  .help__image--placeholder {
+    height: 150px;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .help__image--placeholder {
+    height: 170px;
+  }
+}
+
+@media only screen and (min-width: 1023px) {
+  .help__image--placeholder {
+    height: 200px;
+  }
+}
+
