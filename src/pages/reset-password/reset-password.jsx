@@ -2,17 +2,11 @@ import React, { useState, Fragment } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useParams, useHistory } from "react-router-dom";
-import Button from "../../components/button/button";
-import Card from "../../components/card/card";
-import Input from "../../components/input/input";
-import LoadingSpinner from "../../components/loading-spinner/loadingSpinner";
-import Modal from "../../components/modal/modal";
-import Toast from "../../components/toast/toast";
+import { Button, Card, Input, LoadingSpinner, Modal, Toast } from "../../components";
 import { VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH } from "../../util/validators";
 import { initialInputState, toastTypes } from "../constants";
 import { handleInputTouch, handleInputChange, encryptPassword } from "../../util/shared-methods";
-import Hide from "../../assets/icons/hide.svg";
-import Show from "../../assets/icons/show.svg";
+import { Hide, Show } from "../../assets/icons";
 import "./reset-password.css";
 
 const initialInputStatePassword = {

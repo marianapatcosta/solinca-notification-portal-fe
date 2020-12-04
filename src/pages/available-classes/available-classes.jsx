@@ -7,9 +7,7 @@ import React, {
 } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-import Card from "../../components/card/card";
-import LoadingSpinner from "../../components/loading-spinner/loadingSpinner";
-import Modal from "../../components/modal/modal";
+import { Card, LoadingSpinner, Modal} from "../../components";
 import { AuthContext } from "../../context/auth-context";
 import "./available-classes.css";
 

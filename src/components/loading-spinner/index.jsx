@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./loadingSpinner.css";
+import "./index.css";
 
 const LoadingSpinner = () => {
   useEffect(() => {

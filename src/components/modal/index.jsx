@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
-import Button from "../button/button";
-import "./modal.css";
+import { Button } from "../";
+import "./index.css";
 
 const Modal = ({
   header,

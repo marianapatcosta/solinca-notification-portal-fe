@@ -7,14 +7,7 @@ import React, {
 } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-import Button from "../../components/button/button";
-import Card from "../../components/card/card";
-import DropdownMultiSelection from "../../components/dropdown-multiselection/dropdown-multiselection";
-import Input from "../../components/input/input";
-import LoadingSpinner from "../../components/loading-spinner/loadingSpinner";
-import Modal from "../../components/modal/modal";
-import ToggleSwitch from "../../components/toggle-switch/toggle-switch";
-import Toast from "../../components/toast/toast";
+import { Button, Card, DropdownMultiSelection, Input, LoadingSpinner, Modal, ToggleSwitch, Toast } from "../../components";
 import { AuthContext } from "../../context/auth-context";
 import {
   VALIDATOR_REQUIRE,
@@ -29,8 +22,7 @@ import {
   initialInputState,
 } from "../constants";
 import { encryptPassword, handleInputChange, handleInputTouch, toggleIsPasswordVisible } from "../../util/shared-methods";
-import Hide from "../../assets/icons/hide.svg";
-import Show from "../../assets/icons/show.svg";
+import { Hide, Show } from "../../assets/icons";
 import "./user-data.css";
 
 const initialInputStatePassword = {

@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Card from "../../components/card/card";
+import { Card } from "../../components";
 import "./about.css";
 
 const About = () => {

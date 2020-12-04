@@ -1,6 +1,6 @@
 import React from "react";
-import Tick from "../../assets/icons/tick.svg";
-import "./checkbox.css";
+import { Tick } from "../../assets/icons";
+import "./index.css";
 
 const Checkbox = ({ disabled, onClick, checked, label }) => {
   return (

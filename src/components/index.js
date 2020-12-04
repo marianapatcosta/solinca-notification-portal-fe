@@ -1,20 +1,28 @@
-module.exports = {
-  Button: require('./button').default,
-  Card: require('./card').default,
-  Checkbox: require('./checkbox').default,
-  DropdownMultiSelection: require('./dropdownmultiselection').default,
-  Emoji: require('./emoji').default,
-  Header: require('./header').default,
-  Image: require('./image').default,
-  Input: require('./input').default,
-  LoadingSpinner: require('./loading-spinner').default,
-  Modal: require('./modal').default,
-  Toast: require('./toast').default,
-  ToggleSwitch: require('./toggle-switch').default
-}
 
-import Home from './home.svg' 
+import Button from "./button";
+import Card from "./card";
+import Checkbox from "./checkbox";
+import DropdownMultiSelection from "./dropdown-multiselection";
+import Emoji from "./emoji";
+import Header from "./header";
+import Image from "./image";
+import Input from "./input";
+import LoadingSpinner from "./loading-spinner";
+import Modal from "./modal";
+import Toast from "./toast";
+import ToggleSwitch from "./toggle-switch";
 
 export {
-Home
+  Button,
+  Card,
+  Checkbox,
+  DropdownMultiSelection,
+  Emoji,
+  Header,
+  Image,
+  Input,
+  LoadingSpinner,
+  Modal,
+  Toast,
+  ToggleSwitch
 };

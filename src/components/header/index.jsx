@@ -8,13 +8,11 @@ import React, {
 } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import Emoji from "../emoji/emoji";
-import ToggleSwitch from "../toggle-switch/toggle-switch";
+import { Emoji, ToggleSwitch } from "../";
 import { AuthContext } from "../../context/auth-context";
-import Home from "../../assets/icons/home.svg";
-import PtFlag from "../../assets/images/pt-flag.png";
-import UkFlag from "../../assets/images/uk-flag.png";
-import "./header.css";
+import { Home } from "../../assets/icons";
+import{ PtFlag, UkFlag } from "../../assets/images";
+import "./index.css";
 
 const languages = {
   EN: "en",

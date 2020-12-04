@@ -1,6 +1,5 @@
 import React from "react";
-
-import "./toggle-switch.css";
+import "./index.css";
 
 const ToggleSwitch = ({
   label,

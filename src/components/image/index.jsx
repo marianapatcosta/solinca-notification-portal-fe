@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./image.css";
+import "./index.css";
 
 const Image = ({ isClickable, src, alt, className, placeholderClass }) => {
   const [isZoomedIn, setIsZoomedIn] = useState(false);
