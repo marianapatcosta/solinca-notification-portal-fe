@@ -1,5 +1,5 @@
 import React from "react";
-import "./input.css";
+import "./index.css";
 
 const Input = ({
   id,

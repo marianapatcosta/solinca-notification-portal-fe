@@ -1,10 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Card from "../../components/card/card";
-import Image from "../../components/image/image";
-import TutorialSolincaAuth1 from "../../assets/images/tutorial_solincaAuth_1.png";
-import TutorialSolincaAuth2 from "../../assets/images/tutorial_solincaAuth_2.png";
-import TutorialSolincaAuth3 from "../../assets/images/tutorial_solincaAuth_3.png";
+import { Card, Image }from "../../components";
+import { TutorialSolincaAuth1, TutorialSolincaAuth2, TutorialSolincaAuth3 } from "../../assets/images";
 import "./help.css";
 
 const Help = () => {

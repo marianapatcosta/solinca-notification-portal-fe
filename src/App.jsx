@@ -7,8 +7,7 @@ import {
 } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { AuthContext } from "./context/auth-context";
-import Header from "./components/header/header";
-import LoadingSpinner from "./components/loading-spinner/loadingSpinner";
+import { Header, LoadingSpinner } from "./components";
 import "./App.css";
 
 const About = lazy(() => import("./pages/about/about"));

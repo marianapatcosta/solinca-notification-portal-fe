@@ -2,12 +2,7 @@ import React, { Fragment, useContext, useState } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { Link, useHistory } from "react-router-dom";
-import Button from "../../components/button/button";
-import Card from "../../components/card/card";
-import Input from "../../components/input/input";
-import LoadingSpinner from "../../components/loading-spinner/loadingSpinner";
-import Modal from "../../components/modal/modal";
-import Toast from "../../components/toast/toast";
+import { Button, Card, Input, LoadingSpinner, Modal, Toast} from "../../components";
 import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
@@ -15,10 +10,14 @@ import {
   VALIDATOR_PHONE_NUMBER,
 } from "../../util/validators";
 import { AuthContext } from "../../context/auth-context";
-import Hide from "../../assets/icons/hide.svg";
-import Show from "../../assets/icons/show.svg";
+import { Hide, Show } from "../../assets/icons";
 import { toastTypes, initialInputState } from "../constants";
-import { encryptPassword, handleInputChange, handleInputTouch, toggleIsPasswordVisible } from "../../util/shared-methods";
+import {
+  encryptPassword,
+  handleInputChange,
+  handleInputTouch,
+  toggleIsPasswordVisible,
+} from "../../util/shared-methods";
 import "./authentication.css";
 
 const Authentication = () => {
@@ -68,9 +67,9 @@ const Authentication = () => {
     e.preventDefault();
     !showLogin
       ? submitSignUp()
-      : (resetPassword
+      : resetPassword
       ? submitResetPassword()
-      : submitLogin());
+      : submitLogin();
   };
 
   const submitResetPassword = async () => {
@@ -86,7 +85,7 @@ const Authentication = () => {
     try {
       await axios.post(
         `${process.env.REACT_APP_BACKEND_URL}/user/reset-password`,
-        { email: email.value}
+        { email: email.value }
       );
       setToastData({
         message: t("authentication.resetPasswordSuccess"),

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Checkbox from "../checkbox/checkbox";
-import DownArrow from "../../assets/icons/down-arrow.svg";
-import "./dropdown-multiselection.css";
+import { Checkbox } from "../";
+import { DownArrow } from "../../assets/icons";
+import "./index.css";
 
 const DropdownMultiSelection = ({
   options,

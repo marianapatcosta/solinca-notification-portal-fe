@@ -1,5 +1,5 @@
 import React from "react";
-import './emoji.css';
+import './index.css';
 
 const Emoji = ({ label, emoji }) => (
   <span

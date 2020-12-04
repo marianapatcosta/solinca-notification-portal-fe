@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./toast.css";
+import "./index.css";
 
 const Toast = ({ type, message, onClean }) => {
   const typeClass = () => {
