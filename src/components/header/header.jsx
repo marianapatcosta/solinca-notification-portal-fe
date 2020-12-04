@@ -201,7 +201,6 @@ const Header = ({ title }) => {
         <Link className="header__title--link" to="/">
           {title}
         </Link>
-        {isLoggedIn && <div className="header__user--mobile">{`Hello ${username}`}</div>}
       </h2>
       <div
         className={`header__side-menu ${
@@ -211,6 +210,9 @@ const Header = ({ title }) => {
       >
         {isMenuOpened && (
           <Fragment>
+            {isLoggedIn && (
+              <div className="header__user--mobile">{`${t("header.hello")}${username}`}</div>
+            )}
             {renderNavLinks()}
             {renderPreferences()}
             {isLoggedIn && (
@@ -225,8 +227,10 @@ const Header = ({ title }) => {
         {renderNavLinks()}
         <div className="header__right-side">
           <div className="header__right-side-top">
-          {isLoggedIn && <div className="header__user">{`Hello ${username}`}</div>}
-          {renderPreferences()}
+            {isLoggedIn && (
+              <div className="header__user">{`${t("header.hello")}${username}`}</div>
+            )}
+            {renderPreferences()}
           </div>
           {isLoggedIn && (
             <div className="header__logout" onClick={logout}>
