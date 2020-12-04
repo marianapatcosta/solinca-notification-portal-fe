@@ -50,6 +50,7 @@
     "authentication": "authentication",
     "classesError": "Favorite classes can not be displayed.",
     "configurations": "configurations",
+    "hello": "Hello, ",
     "help": "help",
     "logout": "Logout",
     "title": "Solinca Notification Portal"
