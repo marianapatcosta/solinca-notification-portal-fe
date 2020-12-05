@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { Link, useHistory } from "react-router-dom";
@@ -19,6 +19,12 @@ import {
   toggleIsPasswordVisible,
 } from "../../util/shared-methods";
 import "./authentication.css";
+
+const entityTypes = {
+  LOGIN: "login",
+  SIGN_UP: "signUp",
+  RESET_PASSWORD: "resetPassword"
+};
 
 const Authentication = () => {
   const [t] = useTranslation();
@@ -42,7 +48,8 @@ const Authentication = () => {
   const [resetPassword, setResetPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [toastData, setToastData] = useState({});
-
+  const [entity, setEntity] = useState();
+    
   const toggleShowLogin = () => {
     resetForm();
     setShowLogin((prevShowLogin) => !prevShowLogin);
@@ -65,11 +72,7 @@ const Authentication = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    !showLogin
-      ? submitSignUp()
-      : resetPassword
-      ? submitResetPassword()
-      : submitLogin();
+    entity.submit();
   };
 
   const submitResetPassword = async () => {
@@ -318,21 +321,31 @@ const Authentication = () => {
     );
   };
 
-  const renderForm = () => {
-    return !showLogin
-      ? renderSignUpForm()
-      : resetPassword
-      ? renderResetPasswordForm()
-      : renderLoginForm();
+  const entities = {
+    login: {
+      renderForm: renderLoginForm,
+      label: t("authentication.login"),
+      submit: submitLogin
+    },
+    signUp: {
+      renderForm: renderSignUpForm,
+      label: t("authentication.signUp"),
+      submit: submitSignUp
+    },
+    resetPassword: {
+      renderForm: renderResetPasswordForm,
+      label: t("authentication.resetPassword"),
+      submit: submitResetPassword
+    }
   };
 
-  const renderLabel = () => {
-    return !showLogin
-      ? t("authentication.signUp")
-      : resetPassword
-      ? t("authentication.resetPassword")
-      : t("authentication.login");
-  };
+  useEffect(() => {
+    !showLogin
+    ? setEntity(entities[entityTypes.SIGN_UP])
+    : resetPassword
+    ? setEntity(entities[entityTypes.RESET_PASSWORD])
+    : setEntity(entities[entityTypes.LOGIN]);
+  }, [showLogin, resetPassword]);
 
   return (
     <Fragment>
@@ -347,12 +360,12 @@ const Authentication = () => {
       {isLoading && <LoadingSpinner />}
       <Card className="page__card page__card--relative">
         {toastData.message && <Toast {...toastData} onClean={setToastData} />}
-        <h3 className="page__card-title">{renderLabel()}</h3>
+        <h3 className="page__card-title">{entity && entity.label}</h3>
         <form onSubmit={handleSubmit}>
-          {renderForm()}
+          {entity && entity.renderForm()}
           <div className="form__item form__button">
             <Button
-              label={renderLabel()}
+              label={entity && entity.label}
               type="submit"
               size="large"
               onClick={handleSubmit}
