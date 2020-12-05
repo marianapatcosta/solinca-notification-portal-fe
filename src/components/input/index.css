@@ -46,9 +46,10 @@
   position: absolute;
   width: 15px;
   height: 15px;
-  top: 33px;
+  top: 28px;
   right: 5%;
-  filter: invert(28%) sepia(81%) saturate(4183%) hue-rotate(303deg) brightness(84%) contrast(85%);
+  filter: invert(28%) sepia(81%) saturate(4183%) hue-rotate(303deg)
+    brightness(84%) contrast(85%);
 }
 
 .input__icon:hover {
@@ -61,4 +62,10 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-text-fill-color: var(--color-font);
   -webkit-box-shadow: 0 0 0 30px var(--color-primary) inset !important;
+}
+
+@media only screen and (min-width: 767px) {
+  .input__icon {
+    top: 33px;
+  }
 }
