@@ -1,8 +1,8 @@
-import React, { Fragment, useContext, useEffect, useState } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { Link, useHistory } from "react-router-dom";
-import { Button, Card, Input, LoadingSpinner, Modal, Toast} from "../../components";
+import { Button, Card, Input, LoadingSpinner, Modal, Toast } from "../../components";
 import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
@@ -12,19 +12,8 @@ import {
 import { AuthContext } from "../../context/auth-context";
 import { Hide, Show } from "../../assets/icons";
 import { toastTypes, initialInputState } from "../constants";
-import {
-  encryptPassword,
-  handleInputChange,
-  handleInputTouch,
-  toggleIsPasswordVisible,
-} from "../../util/shared-methods";
+import { encryptPassword, handleInputChange, handleInputTouch, toggleIsPasswordVisible } from "../../util/shared-methods";
 import "./authentication.css";
-
-const entityTypes = {
-  LOGIN: "login",
-  SIGN_UP: "signUp",
-  RESET_PASSWORD: "resetPassword"
-};
 
 const Authentication = () => {
   const [t] = useTranslation();
@@ -48,8 +37,7 @@ const Authentication = () => {
   const [resetPassword, setResetPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [toastData, setToastData] = useState({});
-  const [entity, setEntity] = useState();
-    
+
   const toggleShowLogin = () => {
     resetForm();
     setShowLogin((prevShowLogin) => !prevShowLogin);
@@ -72,7 +60,11 @@ const Authentication = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    entity.submit();
+    !showLogin
+      ? submitSignUp()
+      : (resetPassword
+      ? submitResetPassword()
+      : submitLogin());
   };
 
   const submitResetPassword = async () => {
@@ -88,7 +80,7 @@ const Authentication = () => {
     try {
       await axios.post(
         `${process.env.REACT_APP_BACKEND_URL}/user/reset-password`,
-        { email: email.value }
+        { email: email.value}
       );
       setToastData({
         message: t("authentication.resetPasswordSuccess"),
@@ -321,31 +313,21 @@ const Authentication = () => {
     );
   };
 
-  const entities = {
-    login: {
-      renderForm: renderLoginForm,
-      label: t("authentication.login"),
-      submit: submitLogin
-    },
-    signUp: {
-      renderForm: renderSignUpForm,
-      label: t("authentication.signUp"),
-      submit: submitSignUp
-    },
-    resetPassword: {
-      renderForm: renderResetPasswordForm,
-      label: t("authentication.resetPassword"),
-      submit: submitResetPassword
-    }
+  const renderForm = () => {
+    return !showLogin
+      ? renderSignUpForm()
+      : resetPassword
+      ? renderResetPasswordForm()
+      : renderLoginForm();
   };
 
-  useEffect(() => {
-    !showLogin
-    ? setEntity(entities[entityTypes.SIGN_UP])
-    : resetPassword
-    ? setEntity(entities[entityTypes.RESET_PASSWORD])
-    : setEntity(entities[entityTypes.LOGIN]);
-  }, [showLogin, resetPassword]);
+  const renderLabel = () => {
+    return !showLogin
+      ? t("authentication.signUp")
+      : resetPassword
+      ? t("authentication.resetPassword")
+      : t("authentication.login");
+  };
 
   return (
     <Fragment>
@@ -360,12 +342,12 @@ const Authentication = () => {
       {isLoading && <LoadingSpinner />}
       <Card className="page__card page__card--relative">
         {toastData.message && <Toast {...toastData} onClean={setToastData} />}
-        <h3 className="page__card-title">{entity && entity.label}</h3>
+        <h3 className="page__card-title">{renderLabel()}</h3>
         <form onSubmit={handleSubmit}>
-          {entity && entity.renderForm()}
+          {renderForm()}
           <div className="form__item form__button">
             <Button
-              label={entity && entity.label}
+              label={renderLabel()}
               type="submit"
               size="large"
               onClick={handleSubmit}
