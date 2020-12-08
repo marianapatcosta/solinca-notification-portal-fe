@@ -3,11 +3,12 @@ import "./index.css";
 
 const LoadingSpinner = () => {
   useEffect(() => {
-    // document.documentElement.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
     document.getElementsByTagName("body")[0].className += "overlay";
-    return () =>
-      // document.documentElement.style.overflow = "scroll"
+    return () => {
+      document.documentElement.style.overflow = "scroll";
       document.getElementsByTagName("body")[0].classList.remove("overlay");
+    };
   }, []);
 
   return (
