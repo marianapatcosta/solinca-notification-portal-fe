@@ -7,7 +7,16 @@ import React, {
 } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-import { Button, Card, DropdownMultiSelection, Input, LoadingSpinner, Modal, ToggleSwitch, Toast } from "../../components";
+import {
+  Button,
+  Card,
+  DropdownMultiSelection,
+  Input,
+  LoadingSpinner,
+  Modal,
+  ToggleSwitch,
+  Toast,
+} from "../../components";
 import { AuthContext } from "../../context/auth-context";
 import {
   VALIDATOR_REQUIRE,
@@ -21,7 +30,12 @@ import {
   toastTypes,
   initialInputState,
 } from "../constants";
-import { encryptPassword, handleInputChange, handleInputTouch, toggleIsPasswordVisible } from "../../util/shared-methods";
+import {
+  encryptPassword,
+  handleInputChange,
+  handleInputTouch,
+  toggleIsPasswordVisible,
+} from "../../util/shared-methods";
 import { Hide, Show } from "../../assets/icons";
 import "./user-data.css";
 
@@ -36,10 +50,9 @@ const UserData = () => {
   const [fetchedClubs, setFetchedClubs] = useState([]);
   const [selectedClubs, setSelectedClubs] = useState([]);
   const [selectedClasses, setSelectedClasses] = useState([]);
-  const [selectedNotificationTypes, setSelectedNotificationTypes] = useState(
-    []
-  );
+  const [selectedNotificationTypes, setSelectedNotificationTypes] = useState([]);
   const [isWatcherOn, setIsWatcherOn] = useState(false);
+  const [isNotificationRepeatOn, setIsNotificationRepeatOn] = useState(false);
   const [password, setPassword] = useState(initialInputStatePassword);
   const [confirmationPassword, setConfirmationPassword] = useState(initialInputStatePassword);
   const [oldPassword, setOldPassword] = useState(initialInputStatePassword);
@@ -93,6 +106,7 @@ const UserData = () => {
       setSelectedClubs(userData.selectedClubs);
       setSelectedNotificationTypes(userData.notificationTypes);
       userData.isWatcherOn && setIsWatcherOn(userData.isWatcherOn);
+      userData.isNotificationRepeatOn && setIsNotificationRepeatOn(userData.isNotificationRepeatOn);
       userData.email &&
         setEmail((prevEmail) => ({ ...prevEmail, value: userData.email }));
       userData.phoneNumber &&
@@ -112,12 +126,6 @@ const UserData = () => {
     fetchClubs();
   }, [fetchUserData, fetchClubs]);
 
-  const toggleShowPersonUserInfo = () =>
-    setShowUserDataForm((prevShowPersonUserInfo) => !prevShowPersonUserInfo);
-
-  const toggleShowChangePassword = () =>
-    setShowChangePassword((prevShowChangePassword) => !prevShowChangePassword);
-
   const handleDropdownMultiSelectionClick = (
     clickedItem,
     selectedItemsCollection,
@@ -136,15 +144,14 @@ const UserData = () => {
       : setter((prevCollectionState) => [...prevCollectionState, clickedItem]);
   };
 
-  const handleToggleIsWatcherOn = () => {
-    setIsWatcherOn((prevIsWatcherOn) => !prevIsWatcherOn);
-  };
-  
+  const handleToggleVariable = (setter) => setter((prevValue) => !prevValue);
+
   const getSubmitPreferencesBody = () => ({
     classesToTrack: selectedClasses,
     selectedClubs,
     notificationTypes: selectedNotificationTypes,
     isWatcherOn,
+    isNotificationRepeatOn
   });
 
   const getSubmitUserDataBody = () => {
@@ -242,7 +249,14 @@ const UserData = () => {
           <ToggleSwitch
             label={t("userData.watchClasses")}
             isOn={isWatcherOn}
-            handleToggle={handleToggleIsWatcherOn}
+            handleToggle={() => handleToggleVariable(setIsWatcherOn)}
+          />
+        </div>
+        <div className="form__item form__toggle">
+          <ToggleSwitch
+            label={t("userData.repeatNotifications")}
+            isOn={isNotificationRepeatOn}
+            handleToggle={() => handleToggleVariable(setIsNotificationRepeatOn)}
           />
         </div>
         <div className="form__item">
@@ -434,10 +448,7 @@ const UserData = () => {
           </Fragment>
         ) : (
           <div className="form__item">
-            <span
-              className="link"
-              onClick={toggleShowChangePassword}
-            >
+            <span className="link" onClick={() => handleToggleVariable(setShowChangePassword)}>
               {t("userData.changePassword")}
             </span>
           </div>
@@ -484,7 +495,7 @@ const UserData = () => {
             </div>
             <span
               className="page__card-footer"
-              onClick={toggleShowPersonUserInfo}
+              onClick={() => handleToggleVariable(setShowUserDataForm)}
             >
               {!showUserDataForm
                 ? t("userData.editPersonalInfo")
