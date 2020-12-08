@@ -102,7 +102,7 @@ const UserData = () => {
         }
       );
       const userData = response.data;
-      setSelectedClasses(userData.classesToTrack);
+      setSelectedClasses(userData.classesToWatch);
       setSelectedClubs(userData.selectedClubs);
       setSelectedNotificationTypes(userData.notificationTypes);
       userData.isWatcherOn && setIsWatcherOn(userData.isWatcherOn);
@@ -147,7 +147,7 @@ const UserData = () => {
   const handleToggleVariable = (setter) => setter((prevValue) => !prevValue);
 
   const getSubmitPreferencesBody = () => ({
-    classesToTrack: selectedClasses,
+    classesToWatch: selectedClasses,
     selectedClubs,
     notificationTypes: selectedNotificationTypes,
     isWatcherOn,
