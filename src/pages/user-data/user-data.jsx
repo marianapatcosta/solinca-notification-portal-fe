@@ -249,6 +249,7 @@ const UserData = () => {
           <ToggleSwitch
             label={t("userData.watchClasses")}
             isOn={isWatcherOn}
+            style={{"justify-content": "space-between"}}
             handleToggle={() => handleToggleVariable(setIsWatcherOn)}
           />
         </div>
@@ -256,6 +257,7 @@ const UserData = () => {
           <ToggleSwitch
             label={t("userData.repeatNotifications")}
             isOn={isNotificationRepeatOn}
+            style={{"justify-content": "space-between"}}
             handleToggle={() => handleToggleVariable(setIsNotificationRepeatOn)}
           />
         </div>

@@ -8,10 +8,12 @@ const ToggleSwitch = ({
   isOn,
   disabled,
   handleToggle,
+  style
 }) => {
   return (
     <label onClick={handleToggle}
       className={`toggle-switch ${label ? "toggle-switch--with-label" : ""}`}
+      style={style}
     >
       {label && (
         <span
