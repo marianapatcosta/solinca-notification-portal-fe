@@ -103,6 +103,7 @@
     "newPasswordError": "Por favor insira uma palavra-passe válida (min. 8 carateres).",
     "phoneNumber": "Número de telemóvel",
     "phoneNumberError": "Por favor insira um número de telemóvel nacional válido.",
+    "repeatNotifications": "Repetir notificações",
     "selectClubs": "Selecione clubes",
     "selectClasses": "Selecione aulas",
     "solincaAuth": "Código de autenticação Solinca",

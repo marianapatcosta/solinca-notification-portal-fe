@@ -103,6 +103,7 @@
     "newPasswordError": "Please insert a valid password (min. {{characters}} characters).",
     "phoneNumber": "Mobile phone",
     "phoneNumberError": "Please insert a valid portuguese phone number.",
+    "repeatNotifications": "Repeat notifications",
     "selectClubs": "Select clubs",
     "selectClasses": "Select classes",
     "solincaAuth": "Solinca authentication code",
