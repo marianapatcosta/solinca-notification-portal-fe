@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useParams, useHistory } from "react-router-dom";
 import { Button, Card, Input, LoadingSpinner, Modal, Toast } from "../../components";
 import { VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH } from "../../util/validators";
-import { initialInputState, toastTypes } from "../constants";
+import { initialInputState, toastTypes } from "../../constants";
 import { handleInputTouch, handleInputChange, encryptPassword } from "../../util/shared-methods";
 import { Hide, Show } from "../../assets/icons";
 import "./reset-password.css";

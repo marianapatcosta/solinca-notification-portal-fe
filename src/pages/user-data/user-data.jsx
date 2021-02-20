@@ -29,11 +29,12 @@ import {
   NOTIFICATION_TYPES,
   toastTypes,
   initialInputState,
-} from "../constants";
+} from "../../constants";
 import {
   encryptPassword,
   handleInputChange,
   handleInputTouch,
+  isEventValid,
   toggleIsPasswordVisible,
 } from "../../util/shared-methods";
 import { Hide, Show } from "../../assets/icons";
@@ -50,11 +51,15 @@ const UserData = () => {
   const [fetchedClubs, setFetchedClubs] = useState([]);
   const [selectedClubs, setSelectedClubs] = useState([]);
   const [selectedClasses, setSelectedClasses] = useState([]);
-  const [selectedNotificationTypes, setSelectedNotificationTypes] = useState([]);
+  const [selectedNotificationTypes, setSelectedNotificationTypes] = useState(
+    []
+  );
   const [isWatcherOn, setIsWatcherOn] = useState(false);
   const [isNotificationRepeatOn, setIsNotificationRepeatOn] = useState(false);
   const [password, setPassword] = useState(initialInputStatePassword);
-  const [confirmationPassword, setConfirmationPassword] = useState(initialInputStatePassword);
+  const [confirmationPassword, setConfirmationPassword] = useState(
+    initialInputStatePassword
+  );
   const [oldPassword, setOldPassword] = useState(initialInputStatePassword);
   const [solincaAuth, setSolincaAuth] = useState(initialInputState);
   const [email, setEmail] = useState(initialInputState);
@@ -106,7 +111,8 @@ const UserData = () => {
       setSelectedClubs(userData.selectedClubs);
       setSelectedNotificationTypes(userData.notificationTypes);
       userData.isWatcherOn && setIsWatcherOn(userData.isWatcherOn);
-      userData.isNotificationRepeatOn && setIsNotificationRepeatOn(userData.isNotificationRepeatOn);
+      userData.isNotificationRepeatOn &&
+        setIsNotificationRepeatOn(userData.isNotificationRepeatOn);
       userData.email &&
         setEmail((prevEmail) => ({ ...prevEmail, value: userData.email }));
       userData.phoneNumber &&
@@ -151,7 +157,7 @@ const UserData = () => {
     selectedClubs,
     notificationTypes: selectedNotificationTypes,
     isWatcherOn,
-    isNotificationRepeatOn
+    isNotificationRepeatOn,
   });
 
   const getSubmitUserDataBody = () => {
@@ -249,7 +255,7 @@ const UserData = () => {
           <ToggleSwitch
             label={t("userData.watchClasses")}
             isOn={isWatcherOn}
-            style={{"justify-content": "space-between"}}
+            style={{ justifyContent: "space-between" }}
             handleToggle={() => handleToggleVariable(setIsWatcherOn)}
           />
         </div>
@@ -257,7 +263,7 @@ const UserData = () => {
           <ToggleSwitch
             label={t("userData.repeatNotifications")}
             isOn={isNotificationRepeatOn}
-            style={{"justify-content": "space-between"}}
+            style={{ justifyContent: "space-between" }}
             handleToggle={() => handleToggleVariable(setIsNotificationRepeatOn)}
           />
         </div>
@@ -450,7 +456,10 @@ const UserData = () => {
           </Fragment>
         ) : (
           <div className="form__item">
-            <span className="link" onClick={() => handleToggleVariable(setShowChangePassword)}>
+            <span
+              className="link"
+              onClick={() => handleToggleVariable(setShowChangePassword)}
+            >
               {t("userData.changePassword")}
             </span>
           </div>
@@ -496,8 +505,13 @@ const UserData = () => {
               />
             </div>
             <span
+              role="button"
+              tabIndex="0"
               className="page__card-footer"
               onClick={() => handleToggleVariable(setShowUserDataForm)}
+              onKeyDown={(event) =>
+                isEventValid(event) && handleToggleVariable(setShowUserDataForm)
+              }
             >
               {!showUserDataForm
                 ? t("userData.editPersonalInfo")

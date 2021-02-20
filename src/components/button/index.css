@@ -1,9 +1,9 @@
 .button {
   padding: 10px;
-  border: 1px solid var(--color-pink);
+  border: 1px solid var(--color-highlight);
   border-radius: 3px;
   background-color: var(--color-transparent);
-  color: var(--color-pink);
+  color: var(--color-highlight);
   font-size: 95%;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;

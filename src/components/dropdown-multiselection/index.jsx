@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Checkbox } from "../";
 import { DownArrow } from "../../assets/icons";
+import { isEventValid } from "../../util/shared-methods";
 import "./index.css";
 
 const DropdownMultiSelection = ({
@@ -26,12 +27,18 @@ const DropdownMultiSelection = ({
     setIsExpanded((prevIsExpanded) => !prevIsExpanded);
 
   return (
-    <div className="dropdown-multiselection">
+    <div className="dropdown-multiselection" >
       <div
         className={`dropdown-multiselection__header ${
           disabled ? "dropdown-multiselection__header--disabled" : ""
         }`}
+        role="button"
+        tabIndex={disabled ? -1 : 0}
+        aria-label={`label`}
+        aria-labelledby="dropdown-multiselection__title"
         onClick={toggleDropdownExpansion}
+        onKeyDown={(event) => isEventValid(event) && toggleDropdownExpansion()}
+       
       >
         <div className="dropdown-multiselection__title">{title}</div>
         <img
@@ -51,7 +58,7 @@ const DropdownMultiSelection = ({
             >
               <Checkbox
                 disabled={disabled}
-                onClick={() => onOptionClick(option)}
+                onChange={() => onOptionClick(option)}
                 checked={isOptionSelected(option)}
                 label={labelKey ? option[labelKey] : option}
               />

@@ -31,3 +31,13 @@ export const initialInputState = {
   isValid: false,
   isTouched: false,
 };
+
+export const KEYBOARD_CODES = {
+  ENTER_KEY: 13,
+  ESCAPE_KEY: 27,
+  SPACE_KEY: 32,
+  LEFT_ARROW_KEY: 37,
+  UP_ARROW_KEY: 38,
+  RIGHT_ARROW_KEY: 39,
+  DOWN_ARROW_KEY: 40,
+};

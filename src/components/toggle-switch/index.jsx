@@ -1,4 +1,5 @@
 import React from "react";
+import { isEventValid } from "../../util/shared-methods";
 import "./index.css";
 
 const ToggleSwitch = ({
@@ -8,10 +9,12 @@ const ToggleSwitch = ({
   isOn,
   disabled,
   handleToggle,
-  style
+  style,
 }) => {
   return (
-    <label onClick={handleToggle}
+    <label
+      onClick={handleToggle}
+      onKeyDown={(event) => isEventValid(event) && handleToggle()}
       className={`toggle-switch ${label ? "toggle-switch--with-label" : ""}`}
       style={style}
     >

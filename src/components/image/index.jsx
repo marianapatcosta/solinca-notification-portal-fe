@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { isEventValid } from "../../util/shared-methods";
 import "./index.css";
 
 const Image = ({ isClickable, src, alt, className, placeholderClass }) => {
@@ -28,6 +29,8 @@ const Image = ({ isClickable, src, alt, className, placeholderClass }) => {
         <div className={`image__placeholder ${placeholderClass}`}></div>
       )}
       <img
+        role={isClickable ? "button" : ""}
+        tabIndex={isClickable ? "0" : "-1"}
         className={`image ${className} ${
           wasImageClicked ? "image--zoomed-out" : ""
         } ${isClickable ? "image--clickable" : ""} ${
@@ -36,7 +39,9 @@ const Image = ({ isClickable, src, alt, className, placeholderClass }) => {
         style={!isLoaded ? { visibility: "hidden" } : {}}
         src={src}
         alt={alt}
+        loading="lazy"
         onClick={handleImageClick}
+        onKeyDown={(event) => isEventValid(event) && handleImageClick()}
         onLoad={() => setIsLoaded(true)}
       />
     </div>
