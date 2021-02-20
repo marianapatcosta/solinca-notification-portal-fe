@@ -2,7 +2,14 @@ import React, { Fragment, useContext, useState } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { Link, useHistory } from "react-router-dom";
-import { Button, Card, Input, LoadingSpinner, Modal, Toast } from "../../components";
+import {
+  Button,
+  Card,
+  Input,
+  LoadingSpinner,
+  Modal,
+  Toast,
+} from "../../components";
 import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
@@ -11,8 +18,14 @@ import {
 } from "../../util/validators";
 import { AuthContext } from "../../context/auth-context";
 import { Hide, Show } from "../../assets/icons";
-import { toastTypes, initialInputState } from "../constants";
-import { encryptPassword, handleInputChange, handleInputTouch, toggleIsPasswordVisible } from "../../util/shared-methods";
+import { toastTypes, initialInputState } from "../../constants";
+import {
+  encryptPassword,
+  handleInputChange,
+  handleInputTouch,
+  isEventValid,
+  toggleIsPasswordVisible,
+} from "../../util/shared-methods";
 import "./authentication.css";
 
 const Authentication = () => {
@@ -62,9 +75,9 @@ const Authentication = () => {
     e.preventDefault();
     !showLogin
       ? submitSignUp()
-      : (resetPassword
+      : resetPassword
       ? submitResetPassword()
-      : submitLogin());
+      : submitLogin();
   };
 
   const submitResetPassword = async () => {
@@ -80,7 +93,7 @@ const Authentication = () => {
     try {
       await axios.post(
         `${process.env.REACT_APP_BACKEND_URL}/user/reset-password`,
-        { email: email.value}
+        { email: email.value }
       );
       setToastData({
         message: t("authentication.resetPasswordSuccess"),
@@ -103,7 +116,7 @@ const Authentication = () => {
     if (!isFormValid) {
       setToastData({
         message: t("authentication.invalidData"),
-        type: "warning",
+        type: toastTypes.WARNING,
       });
       return;
     }
@@ -158,6 +171,7 @@ const Authentication = () => {
         }
       );
       login(response.data.userId, response.data.token, response.data.username);
+      history.push("/classes");
     } catch (error) {
       setErrorMessage(
         error.request.status === 422
@@ -355,7 +369,13 @@ const Authentication = () => {
           </div>
         </form>
         {!resetPassword && (
-          <span className="page__card-footer" onClick={toggleShowLogin}>
+          <span
+            role="button"
+            tabIndex="0"
+            className="page__card-footer"
+            onClick={toggleShowLogin}
+            onKeyDown={(event) => isEventValid(event) && toggleShowLogin()}
+          >
             {showLogin
               ? t("authentication.createAccount")
               : t("authentication.alreadyHaveAccount")}

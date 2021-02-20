@@ -11,8 +11,9 @@ import { useTranslation } from "react-i18next";
 import { Emoji, ToggleSwitch } from "../";
 import { AuthContext } from "../../context/auth-context";
 import { Home } from "../../assets/icons";
-import{ PtFlag, UkFlag } from "../../assets/images";
+import { PtFlag, UkFlag } from "../../assets/images";
 import "./index.css";
+import { isEventValid } from "../../util/shared-methods";
 
 const languages = {
   EN: "en",
@@ -73,16 +74,18 @@ const Header = ({ title }) => {
   }, [isDarkTheme]);
 
   const changeLanguage = useCallback(
-    (language) => {
-      const storedData = JSON.parse(localStorage.getItem("userPreferences"));
-      i18n.changeLanguage(language);
-      localStorage.setItem(
-        "userPreferences",
-        JSON.stringify({
-          ...storedData,
-          language,
-        })
-      );
+    (event, language) => {
+      if (isEventValid(event)) {
+        const storedData = JSON.parse(localStorage.getItem("userPreferences"));
+        i18n.changeLanguage(language);
+        localStorage.setItem(
+          "userPreferences",
+          JSON.stringify({
+            ...storedData,
+            language,
+          })
+        );
+      }
     },
     [i18n]
   );
@@ -169,15 +172,21 @@ const Header = ({ title }) => {
         <div className="header__flags-container">
           <img
             className="header__flag"
+            role="button"
+            tabIndex="0"
             src={UkFlag}
             alt="uk flag"
-            onClick={() => changeLanguage(languages.EN)}
+            onClick={(event) => changeLanguage(event, languages.EN)}
+            onKeyDown={(event) => changeLanguage(event, languages.EN)}
           />
           <img
             className="header__flag"
+            role="button"
+            tabIndex="0"
             src={PtFlag}
             alt="pt flag"
-            onClick={() => changeLanguage(languages.PT)}
+            onClick={(event) => changeLanguage(event, languages.PT)}
+            onKeyDown={(event) => changeLanguage(event, languages.PT)}
           />
         </div>
       </div>
@@ -209,7 +218,9 @@ const Header = ({ title }) => {
         {isMenuOpened && (
           <Fragment>
             {isLoggedIn && (
-              <div className="header__user--mobile">{`${t("header.hello")}${username}`}</div>
+              <div className="header__user--mobile">{`${t(
+                "header.hello"
+              )}${username}`}</div>
             )}
             {renderNavLinks()}
             {renderPreferences()}
@@ -226,14 +237,16 @@ const Header = ({ title }) => {
         <div className="header__right-side">
           <div className="header__right-side-top">
             {isLoggedIn && (
-              <div className="header__user">{`${t("header.hello")}${username}`}</div>
+              <div className="header__user">{`${t(
+                "header.hello"
+              )}${username}`}</div>
             )}
             {renderPreferences()}
           </div>
           {isLoggedIn && (
-            <div className="header__logout" onClick={logout}>
+            <span className="header__logout" onClick={logout}>
               {t("header.logout")}
-            </div>
+            </span>
           )}
         </div>
       </div>

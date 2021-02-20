@@ -6,6 +6,7 @@
   --color-secondary: #f4f4f4;
   --color-disabled: #aaaaaa;
   --color-transparent: Transparent;
+  --color-highlight: #ca2c92;
   --color-pink: #ca2c92;
   --color-black: #000000;
   --color-white: #ffffff;
@@ -29,10 +30,19 @@
   padding: 0;
 }
 
+*:focus {
+  outline: 0.125rem solid var(--color-highlight);
+}
+
+*:focus:not(:focus-visible) {
+  border-color:  var(--color-highlight);
+  outline: none;
+}
+
 body {
   background-image: url("./assets/images/gym-icons.png"),
     linear-gradient(rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.6)),
-    linear-gradient(var(--color-pink), var(--color-pink));
+    linear-gradient(var(--color-highlight), var(--color-highlight));
   font-family: "Segoe UI", "Helvetica Neue", sans-serif;
   font-size: 0.8rem;
   color: var(--color-font);
@@ -62,7 +72,7 @@ body::-webkit-scrollbar {
 }
 
 .page__card-title {
-  color: var(--color-pink);
+  color: var(--color-highlight);
   font-weight: 400;
   text-align: center;
   margin-bottom: 25px;
@@ -84,18 +94,18 @@ body::-webkit-scrollbar {
 }
 
 .page__card-footer {
-  color: var(--color-pink);
+  color: var(--color-highlight);
   font-style: italic;
   margin: auto 20px;
 }
 
 .page__card-footer:hover {
   cursor: pointer;
-  border-bottom: 0.5px solid var(--color-pink);
+  border-bottom: 0.5px solid var(--color-highlight);
 }
 
 .help-link {
-  color: var(--color-pink);
+  color: var(--color-highlight);
   font-style: italic;
   font-size: 80%;
 }

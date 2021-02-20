@@ -10,13 +10,13 @@
 }
 
 .input__label-mandatory {
-  color: var(--color-pink);
+  color: var(--color-highlight);
   font-weight: 700;
   margin-right: 10px;
 }
 
 .input__wrapper label {
-  color: var(--color-pink);
+  color: var(--color-highlight);
   margin-bottom: 5px;
   font-size: 95%;
 }
@@ -33,13 +33,13 @@
 }
 
 .input__wrapper--invalid p {
-  color: var(--color-pink);
+  color: var(--color-highlight);
   font-weight: bold;
   font-size: 90%;
 }
 
 .input__wrapper--invalid input {
-  border-color: var(--color-pink);
+  border-color: var(--color-highlight);
 }
 
 .input__icon {

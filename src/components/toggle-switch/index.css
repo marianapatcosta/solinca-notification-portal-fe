@@ -111,6 +111,15 @@
   -o-transform: translateX(16px);
 }
 
+.toggle-switch__input:focus + .toggle-switch__slider {
+  /*  when focus, adds a border to its sibling StyledCheckboxToggle */
+  outline: 0.125rem solid var(--color-highlight);
+}
+
+.toggle-switch__input:focus:not(:focus-visible) + .toggle-switch__slider {
+  outline: none;
+}
+
 @media only screen and (min-width: 480px) {
   .toggle-switch__slider {
     height: 11px;
