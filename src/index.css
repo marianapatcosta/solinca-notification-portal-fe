@@ -54,7 +54,7 @@ body {
   overflow-x: hidden;
 }
 
-body.overlay {
+body .overlay {
   overflow: hidden;
 }
 

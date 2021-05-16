@@ -64,8 +64,8 @@ const Header = ({ title }) => {
     );
   };
 
-  const toggleOpenMenu = () =>
-    setIsMenuOpened((prevIsMenuOpened) => !prevIsMenuOpened);
+  const toggleOpenMenu = (event) =>
+    isEventValid(event) && setIsMenuOpened((prevIsMenuOpened) => !prevIsMenuOpened);
 
   const setTheme = useCallback(() => {
     isDarkTheme
@@ -198,7 +198,11 @@ const Header = ({ title }) => {
       <div
         className="header__hamburger-menu"
         ref={hamburgerMenuRef}
+        role='button'
+        tabIndex={0}
         onClick={toggleOpenMenu}
+        onKeyDown={toggleOpenMenu}
+        
       >
         <span />
         <span />
