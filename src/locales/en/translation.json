@@ -1,14 +1,16 @@
 {
   "about": {
     "title": "About",
-    "description": "Considering that there are only a few spots available, it is rare to be able to book online group classes at Solinca’s clubs using the mobile app or at marqueoseutreino.solinca.pt. This portal was developed to allow the user to configure his/her favorite classes for today and tomorrow and to be notified by e-mail or WhatsApp when a spot is available for these classes. This way, there is no need to frequently access Solinca’s app/site to check if some spots emerged for the classes that the user intends to book."
+    "description": "Considering that there are only a few spots available, it is rare to be able to book online group classes at Solinca’s clubs using the mobile app, at marqueoseutreino.solinca.pt or at reservas.solinca-openair.pt. This portal was developed to allow the user to configure his/her favorite classes for today and tomorrow and to be notified by e-mail or WhatsApp when a spot is available for these classes. This way, there is no need to frequently access Solinca’s app/site to check if some spots emerged for the classes that the user intends to book."
   },
   "availableClasses": {
     "classesError": "Available classes can not be displayed.",
     "favoriteClasses": "Available favorite classes",
+    "favoriteOpenAirClasses": "Open Air - Available favorite classes",
     "noFavoriteClasses": "No favorite classes {{day}}.",
     "noFavoriteClassesAvailable": "No favorite classes available.",
     "otherClasses": "Other classes available in your favorite clubs",
+    "otherOpenAirClasses": "Open Air - Other classes available in your favorite clubs",
     "today": "Today",
     "tomorrow": "Tomorrow"
   },
@@ -41,7 +43,7 @@
     "usernameError": "Please insert a valid username."
   },
   "footer": {
-    "main": "This portal was developed for nonprofit purposes and for self use. It uses data from marqueoseutreino.solinca.pt and icons from flaticon.com.",
+    "main": "This portal was developed for nonprofit purposes and for self use. It uses data from marqueoseutreino.solinca.pt and reservas.solinca-openair.pt and icons from flaticon.com.",
     "secondary": "Copyright ©2020 by Mariana Costa. All rights reserved." 
   },
   "header": {

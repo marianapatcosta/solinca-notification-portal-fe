@@ -1,14 +1,16 @@
 {
   "about": {
     "title": "Sobre",
-    "description": "Dado o número reduzido de vagas, é raro conseguir fazer marcação online de aulas de grupo dos clubes Solinca através da aplicação para telemóvel ou em marqueoseutreino.solinca.pt. Este portal foi desenvolvido para permitir ao utilizador configurar as suas aulas favoritas para o próprio dia ou para o dia seguinte e receber uma notificação por e-mail ou WhatsApp quando surgirem vagas nestas aulas. Desta forma, o utilizador não necessita de aceder frequentemente à aplicação/site do Solinca para ver se surgiram vagas nas aulas que pretende marcar."
+    "description": "Dado o número reduzido de vagas, é raro conseguir fazer marcação online de aulas de grupo dos clubes Solinca através da aplicação para telemóvel, em marqueoseutreino.solinca.pt ou em reservas.solinca-openair.pt. Este portal foi desenvolvido para permitir ao utilizador configurar as suas aulas favoritas para o próprio dia ou para o dia seguinte e receber uma notificação por e-mail ou WhatsApp quando surgirem vagas nestas aulas. Desta forma, o utilizador não necessita de aceder frequentemente à aplicação/site do Solinca para ver se surgiram vagas nas aulas que pretende marcar."
   },
   "availableClasses": {
     "classesError": "As aulas disponíveis não podem ser mostradas.",
     "favoriteClasses": "Aulas favoritas disponíveis",
+    "favoriteOpenAirClasses": "Open Air - Aulas favoritas disponíveis",
     "noFavoriteClasses": "Não há aulas favoritas {{day}}.",
     "noFavoriteClassesAvailable": "Não há aulas favoritas disponíveis.",
     "otherClasses": "Outras aulas disponíveis nos seus clubes favoritos",
+    "otherOpenAirClasses": "Open Air - Outras aulas disponíveis nos seus clubes favoritos",
     "today": "Hoje",
     "tomorrow": "Amanhã"
   },
@@ -41,7 +43,7 @@
     "usernameError": "Por favor insira um nome de utilizador."
   },
   "footer": {
-    "main": "Este portal foi desenvolvido sem fins lucrativos e para usufruto próprio. Este portal utiliza dados de marqueoseutreino.solinca.pt e icones de flaticon.com.",
+    "main": "Este portal foi desenvolvido sem fins lucrativos e para usufruto próprio. Este portal utiliza dados de marqueoseutreino.solinca.pt e reservas.solinca-openair.pt e icones de flaticon.com.",
     "secondary": "Copyright ©2020 por Mariana Costa. Todos os direitos reservados." 
   },
   "header": {

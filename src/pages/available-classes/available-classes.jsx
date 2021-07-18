@@ -15,7 +15,9 @@ const AvailableClasses = () => {
   const [t] = useTranslation();
   const { authToken } = useContext(AuthContext);
   const [matchedAvailableClasses, setMatchedAvailableClasses] = useState([]);
+  const [openAirMatchedAvailableClasses, setOpenAirMatchedAvailableClasses] = useState([]);
   const [otherAvailableClasses, setOtherAvailableClasses] = useState([]);
+  const [otherOpenAirAvailableClasses, setOtherOpenAirAvailableClasses] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -40,9 +42,32 @@ const AvailableClasses = () => {
     }
   }, [authToken, t]);
 
+  const fetchOpenAirClasses = useCallback(async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/club/open-air-classes`,
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
+      const classesData = response.data;
+      setOpenAirMatchedAvailableClasses(classesData.matchedClasses);
+      setOtherOpenAirAvailableClasses(classesData.otherClasses);
+    } catch (error) {
+      setErrorMessage(t("availableClasses.classesError"));
+    } finally {
+      setIsLoading(false);
+    }
+  }, [authToken, t]);
+
+
   useEffect(() => {
     fetchClasses();
-  }, [fetchClasses]);
+    fetchOpenAirClasses()
+  }, [fetchClasses, fetchOpenAirClasses]);
 
   const areClassesAvailable = (classes) => {
     return !classes.every(
@@ -151,8 +176,16 @@ const AvailableClasses = () => {
             matchedAvailableClasses
           )}
           {renderClassesCard(
+            t("availableClasses.favoriteOpenAirClasses"),
+            openAirMatchedAvailableClasses
+          )}
+          {renderClassesCard(
             t("availableClasses.otherClasses"),
             otherAvailableClasses
+          )}
+          {renderClassesCard(
+            t("availableClasses.otherOpenAirClasses"),
+            otherOpenAirAvailableClasses
           )}
         </Fragment>
       )}

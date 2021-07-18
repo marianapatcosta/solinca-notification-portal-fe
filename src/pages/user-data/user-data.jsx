@@ -157,7 +157,7 @@ const UserData = () => {
     fetchUserData();
     fetchClubs();
     fetchOpenAirClubs();
-  }, [fetchUserData, fetchClubs]);
+  }, [fetchUserData, fetchClubs, fetchOpenAirClubs]);
 
   const handleDropdownMultiSelectionClick = (
     clickedItem,

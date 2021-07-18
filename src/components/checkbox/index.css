@@ -8,6 +8,7 @@
   opacity: 0.5;
 }
 .checkbox__label {
+  width: 100%;
   font-size: 85%;
   white-space: nowrap;
   overflow: hidden;
