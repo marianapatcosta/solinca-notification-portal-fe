@@ -49,12 +49,15 @@ const UserData = () => {
   const [t] = useTranslation();
   const { authToken, userId } = useContext(AuthContext);
   const [fetchedClubs, setFetchedClubs] = useState([]);
+  const [fetchedOpenAirClubs, setFetchedOpenAirClubs] = useState([]);
   const [selectedClubs, setSelectedClubs] = useState([]);
+  const [selectedOpenAirClubs, setSelectedOpenAirClubs] = useState([]);
   const [selectedClasses, setSelectedClasses] = useState([]);
   const [selectedNotificationTypes, setSelectedNotificationTypes] = useState(
     []
   );
   const [isWatcherOn, setIsWatcherOn] = useState(false);
+  const [isOpenAirWatcherOn, setIsOpenAirWatcherOn] = useState(false);
   const [isNotificationRepeatOn, setIsNotificationRepeatOn] = useState(false);
   const [password, setPassword] = useState(initialInputStatePassword);
   const [confirmationPassword, setConfirmationPassword] = useState(
@@ -94,6 +97,27 @@ const UserData = () => {
       setIsLoading(false);
     }
   }, [authToken, t]);
+    
+  const fetchOpenAirClubs = useCallback(async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/club/open-air-locations`,
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
+      setFetchedOpenAirClubs(
+        response.data.locations.sort((a, b) => (a.name < b.name ? 1 : -1))
+      );
+    } catch (error) {
+      setErrorMessage(t("userData.clubsError"));
+    } finally {
+      setIsLoading(false);
+    }
+  }, [authToken, t]);
 
   const fetchUserData = useCallback(async () => {
     setIsLoading(true);
@@ -109,8 +133,10 @@ const UserData = () => {
       const userData = response.data;
       setSelectedClasses(userData.classesToWatch);
       setSelectedClubs(userData.selectedClubs);
+      setSelectedOpenAirClubs(userData.selectedOpenAirClubs);
       setSelectedNotificationTypes(userData.notificationTypes);
       userData.isWatcherOn && setIsWatcherOn(userData.isWatcherOn);
+      userData.isOpenAirWatcherOn && setIsOpenAirWatcherOn(userData.isOpenAirWatcherOn);
       userData.isNotificationRepeatOn &&
         setIsNotificationRepeatOn(userData.isNotificationRepeatOn);
       userData.email &&
@@ -130,6 +156,7 @@ const UserData = () => {
   useEffect(() => {
     fetchUserData();
     fetchClubs();
+    fetchOpenAirClubs();
   }, [fetchUserData, fetchClubs]);
 
   const handleDropdownMultiSelectionClick = (
@@ -155,8 +182,10 @@ const UserData = () => {
   const getSubmitPreferencesBody = () => ({
     classesToWatch: selectedClasses,
     selectedClubs,
+    selectedOpenAirClubs,
     notificationTypes: selectedNotificationTypes,
     isWatcherOn,
+    isOpenAirWatcherOn,
     isNotificationRepeatOn,
   });
 
@@ -261,6 +290,14 @@ const UserData = () => {
         </div>
         <div className="form__item form__toggle">
           <ToggleSwitch
+            label={t("userData.watchOpenAirClasses")}
+            isOn={isOpenAirWatcherOn}
+            style={{ justifyContent: "space-between" }}
+            handleToggle={() => handleToggleVariable(setIsOpenAirWatcherOn)}
+          />
+        </div>
+        <div className="form__item form__toggle">
+          <ToggleSwitch
             label={t("userData.repeatNotifications")}
             isOn={isNotificationRepeatOn}
             style={{ justifyContent: "space-between" }}
@@ -297,6 +334,23 @@ const UserData = () => {
             }
           />
         </div>
+        {isOpenAirWatcherOn &&        
+        <div className="form__item">
+          <DropdownMultiSelection
+            options={fetchedOpenAirClubs}
+            selectedOptions={selectedOpenAirClubs}
+            title={t("userData.selectOpenAirClubs")}
+            labelKey="name"
+            onOptionClick={(clickedItem) =>
+              handleDropdownMultiSelectionClick(
+                clickedItem,
+                selectedOpenAirClubs,
+                setSelectedOpenAirClubs,
+                "name"
+              )
+            }
+          />
+        </div>}
         <div className="form__item">
           <DropdownMultiSelection
             options={CLASSES.sort()}
