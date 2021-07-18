@@ -105,6 +105,7 @@
     "phoneNumberError": "Please insert a valid portuguese phone number.",
     "repeatNotifications": "Repeat notifications",
     "selectClubs": "Select clubs",
+    "selectOpenAirClubs": "Select OpenAir clubs",
     "selectClasses": "Select classes",
     "solincaAuth": "Solinca authentication code",
     "solincaAuthError": "Please insert a valid Solinca authentication code.",
@@ -114,6 +115,7 @@
     "submitUserData": "Submit personal data",
     "userDataError": "User data can not be displayed.",
     "watchClasses": "Watch classes",
+    "watchOpenAirClasses": "Watch Open Air classes",
     "whatsAppNotificationError": "To select WhatApp notification, please provide a mobile phone first.",
     "wrongOldPassword": "The old password does not match. Please provide your current password."
   }

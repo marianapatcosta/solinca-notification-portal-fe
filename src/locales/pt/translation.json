@@ -105,6 +105,7 @@
     "phoneNumberError": "Por favor insira um número de telemóvel nacional válido.",
     "repeatNotifications": "Repetir notificações",
     "selectClubs": "Selecione clubes",
+    "selectOpenAirClubs": "Selecione clubes OpenAir",
     "selectClasses": "Selecione aulas",
     "solincaAuth": "Código de autenticação Solinca",
     "solincaAuthError": "Por favor insira o código de autenticação do Solinca",
@@ -114,6 +115,7 @@
     "submitUserData": "Submeter dados pessoais",
     "userDataError": "As preferências do utilizador não podem ser mostradas.",
     "watchClasses": "Vigiar aulas",
+    "watchOpenAirClasses": "Vigiar aulas Open Air",
     "whatsAppNotificationError": "Para selecionar a notificação por WhatApp, por favor insira primeiro um número de telemóvel.",
     "wrongOldPassword": "A palavra-passe atual não coincide. Por favor insira a palavra-passe atual correcta."
   }
