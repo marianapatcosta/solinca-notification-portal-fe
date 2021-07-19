@@ -296,44 +296,47 @@ const UserData = () => {
             handleToggle={() => handleToggleVariable(setIsOpenAirWatcherOn)}
           />
         </div>
-        <div className="form__item form__toggle">
-          <ToggleSwitch
-            label={t("userData.repeatNotifications")}
-            isOn={isNotificationRepeatOn}
-            style={{ justifyContent: "space-between" }}
-            handleToggle={() => handleToggleVariable(setIsNotificationRepeatOn)}
-          />
-        </div>
-        <div className="form__item">
-          <DropdownMultiSelection
-            options={NOTIFICATION_TYPES}
-            selectedOptions={selectedNotificationTypes}
-            title={t("userData.notifiedBy")}
-            onOptionClick={(clickedItem) =>
-              handleDropdownMultiSelectionClick(
-                clickedItem,
-                selectedNotificationTypes,
-                setSelectedNotificationTypes
-              )
+        {(isWatcherOn || isOpenAirWatcherOn) && 
+          <div className="form__item form__toggle">
+            <ToggleSwitch
+              label={t("userData.repeatNotifications")}
+              isOn={isNotificationRepeatOn}
+              style={{ justifyContent: "space-between" }}
+              handleToggle={() => handleToggleVariable(setIsNotificationRepeatOn)}
+            />
+          </div>}
+        {(isWatcherOn || isOpenAirWatcherOn) && 
+          <div className="form__item">
+            <DropdownMultiSelection
+              options={NOTIFICATION_TYPES}
+              selectedOptions={selectedNotificationTypes}
+              title={t("userData.notifiedBy")}
+              onOptionClick={(clickedItem) =>
+                handleDropdownMultiSelectionClick(
+                  clickedItem,
+                  selectedNotificationTypes,
+                  setSelectedNotificationTypes
+                )
+              }
+            />
+          </div>}
+        {isWatcherOn && 
+          <div className="form__item">
+            <DropdownMultiSelection
+              options={fetchedClubs}
+              selectedOptions={selectedClubs}
+              title={t("userData.selectClubs")}
+              labelKey="name"
+              onOptionClick={(clickedItem) =>
+                handleDropdownMultiSelectionClick(
+                  clickedItem,
+                  selectedClubs,
+                  setSelectedClubs,
+                  "name"
+                )
             }
           />
-        </div>
-        <div className="form__item">
-          <DropdownMultiSelection
-            options={fetchedClubs}
-            selectedOptions={selectedClubs}
-            title={t("userData.selectClubs")}
-            labelKey="name"
-            onOptionClick={(clickedItem) =>
-              handleDropdownMultiSelectionClick(
-                clickedItem,
-                selectedClubs,
-                setSelectedClubs,
-                "name"
-              )
-            }
-          />
-        </div>
+        </div>}
         {isOpenAirWatcherOn &&        
         <div className="form__item">
           <DropdownMultiSelection
@@ -351,20 +354,21 @@ const UserData = () => {
             }
           />
         </div>}
-        <div className="form__item">
-          <DropdownMultiSelection
-            options={CLASSES.sort()}
-            selectedOptions={selectedClasses}
-            title={t("userData.selectClasses")}
-            onOptionClick={(clickedItem) =>
-              handleDropdownMultiSelectionClick(
-                clickedItem,
-                selectedClasses,
-                setSelectedClasses
-              )
-            }
-          />
-        </div>
+        {(isWatcherOn || isOpenAirWatcherOn) && 
+          <div className="form__item">
+            <DropdownMultiSelection
+              options={CLASSES.sort()}
+              selectedOptions={selectedClasses}
+              title={t("userData.selectClasses")}
+              onOptionClick={(clickedItem) =>
+                handleDropdownMultiSelectionClick(
+                  clickedItem,
+                  selectedClasses,
+                  setSelectedClasses
+                )
+              }
+            />
+          </div>}
       </Fragment>
     );
   };
