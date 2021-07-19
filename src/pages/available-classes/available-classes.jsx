@@ -96,8 +96,7 @@ const AvailableClasses = () => {
     setErrorMessage("");
   };
 
-  const renderClassesCard = (title, classes) => {
-    return (
+  const renderClassesCard = (title, classes) => (
       <Card className="page__card">
         {errorMessage && (
           <Modal
@@ -107,7 +106,7 @@ const AvailableClasses = () => {
             message={errorMessage}
           />
         )}
-        <h3 className="page__card-title">{title}</h3>
+        <h3 className="page__card-title available-classes__title">{title}</h3>
         {!areClassesAvailable(classes) ? (
           <div className="available-classes__club-detail-item">
             {t("availableClasses.noFavoriteClassesAvailable")}
@@ -117,7 +116,6 @@ const AvailableClasses = () => {
         )}
       </Card>
     );
-  };
 
   const renderClassesInfo = ({ club, today, tomorrow }, index) => {
     return (

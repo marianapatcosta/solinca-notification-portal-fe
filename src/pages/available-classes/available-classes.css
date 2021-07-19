@@ -1,3 +1,7 @@
+.available-classes__title {
+  text-align: start;
+}
+
 .available-classes__per-club {
   text-align: left;
   margin-bottom: 15px;
@@ -15,7 +19,6 @@
 .available-classes__club-title {
   margin-bottom: 15px;
   font-weight: 400;
-  text-align: start;
 }
 
 .available-classes__club-detail {
