@@ -5,8 +5,8 @@
   },
   "availableClasses": {
     "classesError": "Available classes can not be displayed.",
-    "favoriteClasses": "Available favorite classes",
-    "favoriteOpenAirClasses": "Open Air - Available favorite classes",
+    "favoriteClasses": "Favorite classes available ",
+    "favoriteOpenAirClasses": "Open Air - Favorite classes available ",
     "noFavoriteClasses": "No favorite classes {{day}}.",
     "noFavoriteClassesAvailable": "No favorite classes available.",
     "otherClasses": "Other classes available in your favorite clubs",

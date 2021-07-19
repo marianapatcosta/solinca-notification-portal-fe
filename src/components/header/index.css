@@ -162,16 +162,16 @@
 
 @media only screen and (min-width: 480px) {
   .header {
-    padding: 0 30px;
+    padding: 0 15px;
     height: 80px;
+  }
+ 
+  .header__side-menu {
+    margin-top: 80px;
   }
 
   .header__user--mobile {
     margin-right: 50px;
-  }
-
-  .header__side-menu {
-    margin-top: 80px;
   }
 
   .header__link--icon {
@@ -181,6 +181,15 @@
 }
 
 @media only screen and (min-width: 767px) {
+  .header {
+    padding: 0 30px;
+    height: 80px;
+  }
+
+  .header__side-menu {
+    margin-top: 80px;
+  }
+
   .header__link--icon {
     width: 20px;
     height: 20px;
