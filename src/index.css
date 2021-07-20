@@ -20,7 +20,7 @@
   --color-primary: #141414;
   --color-secondary: #3c3c3d;
   --color-font: #ffffff;
-  --color-shadow: 240, 240, 240;
+  --color-shadow: 0, 0, 0;
   --color-disabled: #aaaaaa;
   --color-transparent: Transparent;
 }
