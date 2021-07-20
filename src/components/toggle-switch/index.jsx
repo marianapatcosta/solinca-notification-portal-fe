@@ -11,10 +11,11 @@ const ToggleSwitch = ({
   handleToggle,
   style,
 }) => {
+  const onHandleToggle = (event) => !disabled && isEventValid(event) && handleToggle()
   return (
     <label
-      onClick={handleToggle}
-      onKeyDown={(event) => isEventValid(event) && handleToggle()}
+      onClick={onHandleToggle}
+      onKeyDown={onHandleToggle}
       className={`toggle-switch ${label ? "toggle-switch--with-label" : ""}`}
       style={style}
     >

@@ -296,18 +296,18 @@ const UserData = () => {
             handleToggle={() => handleToggleVariable(setIsOpenAirWatcherOn)}
           />
         </div>
-        {(isWatcherOn || isOpenAirWatcherOn) && 
-          <div className="form__item form__toggle">
-            <ToggleSwitch
-              label={t("userData.repeatNotifications")}
-              isOn={isNotificationRepeatOn}
-              style={{ justifyContent: "space-between" }}
-              handleToggle={() => handleToggleVariable(setIsNotificationRepeatOn)}
-            />
-          </div>}
-        {(isWatcherOn || isOpenAirWatcherOn) && 
+        <div className="form__item form__toggle">
+          <ToggleSwitch
+      
+            label={t("userData.repeatNotifications")}
+            isOn={isNotificationRepeatOn}
+            style={{ justifyContent: "space-between" }}
+            handleToggle={() => handleToggleVariable(setIsNotificationRepeatOn)}
+          />
+        </div>
           <div className="form__item">
             <DropdownMultiSelection
+              disabled={!isWatcherOn && !isOpenAirWatcherOn}
               options={NOTIFICATION_TYPES}
               selectedOptions={selectedNotificationTypes}
               title={t("userData.notifiedBy")}
@@ -319,10 +319,10 @@ const UserData = () => {
                 )
               }
             />
-          </div>}
-        {isWatcherOn && 
+          </div>
           <div className="form__item">
             <DropdownMultiSelection
+              disabled={!isWatcherOn}
               options={fetchedClubs}
               selectedOptions={selectedClubs}
               title={t("userData.selectClubs")}
@@ -336,10 +336,10 @@ const UserData = () => {
                 )
             }
           />
-        </div>}
-        {isOpenAirWatcherOn &&        
+        </div>
         <div className="form__item">
           <DropdownMultiSelection
+            disabled={!isOpenAirWatcherOn}
             options={fetchedOpenAirClubs}
             selectedOptions={selectedOpenAirClubs}
             title={t("userData.selectOpenAirClubs")}
@@ -353,22 +353,22 @@ const UserData = () => {
               )
             }
           />
-        </div>}
-        {(isWatcherOn || isOpenAirWatcherOn) && 
-          <div className="form__item">
-            <DropdownMultiSelection
-              options={CLASSES.sort()}
-              selectedOptions={selectedClasses}
-              title={t("userData.selectClasses")}
-              onOptionClick={(clickedItem) =>
-                handleDropdownMultiSelectionClick(
-                  clickedItem,
-                  selectedClasses,
-                  setSelectedClasses
-                )
-              }
-            />
-          </div>}
+        </div>
+        <div className="form__item">
+          <DropdownMultiSelection
+            disabled={!isWatcherOn && !isOpenAirWatcherOn}
+            options={CLASSES.sort()}
+            selectedOptions={selectedClasses}
+            title={t("userData.selectClasses")}
+            onOptionClick={(clickedItem) =>
+              handleDropdownMultiSelectionClick(
+                clickedItem,
+                selectedClasses,
+                setSelectedClasses
+              )
+            }
+          />
+        </div>
       </Fragment>
     );
   };

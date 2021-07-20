@@ -100,7 +100,7 @@
 }
 
 .toggle-switch__input:checked + .toggle-switch__slider--disabled {
-  border: none;
+  border-color: transparent;
 }
 
 .toggle-switch__input:checked + .toggle-switch__slider:before {
