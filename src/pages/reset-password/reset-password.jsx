@@ -33,7 +33,7 @@ const ResetPassword = () => {
       isVisible: !prevPassword.isVisible,
     }));
 
-  const resetPasswordsForm = () => {
+  const resetPasswordForm = () => {
     setPassword(initialInputStatePassword);
     setConfirmationPassword(initialInputStatePassword);
   };
@@ -61,7 +61,7 @@ const ResetPassword = () => {
         message: t("resetPassword.success"),
         type: toastTypes.SUCCESS,
       });
-      resetPasswordsForm();
+      resetPasswordForm();
       setTimeout(() => history.push("/authentication"), 2000);
     } catch (error) {
       setErrorMessage(

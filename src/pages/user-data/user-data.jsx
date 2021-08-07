@@ -89,7 +89,7 @@ const UserData = () => {
         }
       );
       setFetchedClubs(
-        response.data.locations.sort((a, b) => (a.name < b.name ? 1 : -1))
+        response.data.locations.sort((a, b) => (a.name < b.name ? -1 : 1))
       );
     } catch (error) {
       setErrorMessage(t("userData.clubsError"));
@@ -110,7 +110,7 @@ const UserData = () => {
         }
       );
       setFetchedOpenAirClubs(
-        response.data.locations.sort((a, b) => (a.name < b.name ? 1 : -1))
+        response.data.locations.sort((a, b) => (a.name < b.name ? -1 : 1))
       );
     } catch (error) {
       setErrorMessage(t("userData.clubsError"));
@@ -298,7 +298,6 @@ const UserData = () => {
         </div>
         <div className="form__item form__toggle">
           <ToggleSwitch
-      
             label={t("userData.repeatNotifications")}
             isOn={isNotificationRepeatOn}
             style={{ justifyContent: "space-between" }}

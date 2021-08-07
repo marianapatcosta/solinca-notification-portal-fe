@@ -98,14 +98,6 @@ const AvailableClasses = () => {
 
   const renderClassesCard = (title, classes) => (
       <Card className="page__card">
-        {errorMessage && (
-          <Modal
-            header={t("modal.header")}
-            onClose={onCloseModal}
-            buttonLabel={t("modal.ok")}
-            message={errorMessage}
-          />
-        )}
         <h3 className="page__card-title available-classes__title">{title}</h3>
         {!areClassesAvailable(classes) ? (
           <div className="available-classes__club-detail-item">
@@ -184,6 +176,14 @@ const AvailableClasses = () => {
           {renderClassesCard(
             t("availableClasses.otherOpenAirClasses"),
             otherOpenAirAvailableClasses
+          )}
+          {errorMessage && (
+            <Modal
+              header={t("modal.header")}
+              onClose={onCloseModal}
+              buttonLabel={t("modal.ok")}
+              message={errorMessage}
+            />
           )}
         </Fragment>
       )}

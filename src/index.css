@@ -43,6 +43,8 @@ body {
   background-image: url("./assets/images/gym-icons.png"),
     linear-gradient(rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.6)),
     linear-gradient(var(--color-highlight), var(--color-highlight));
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: "Segoe UI", "Helvetica Neue", sans-serif;
   font-size: 0.8rem;
   color: var(--color-font);
